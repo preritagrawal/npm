@@ -1,16 +1,21 @@
-// runtypes.mjs
 import { exec } from 'child_process';
 import fs from 'fs';
-
+import path from 'path'; // Import path module
 import _ from 'lodash';
 import pkg from 'lodash';
 const { camelCase } = pkg;
 import { Project } from 'ts-morph';
 
-const modelGenerator = (jsonObject, parentName) => {
+const modelGenerator = (jsonObject, parentName, outputPath) => {
   const tempJsonFile = 'temp.json';
   fs.writeFileSync(tempJsonFile, jsonObject);
-  const outputFile = `${parentName}.ts`;
+
+  // Check if the output directory exists, if not, create it
+  if (!fs.existsSync(outputPath)) {
+    fs.mkdirSync(outputPath, { recursive: true });
+  }
+
+  const outputFile = path.join(outputPath, `${parentName}.ts`); // Use path.join for generating the file path
   const command = `make_types -i ${outputFile} ${tempJsonFile} ${parentName}`;
   exec(command, (error, stdout, stderr) => {
     if (error) {
