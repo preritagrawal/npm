@@ -44,10 +44,10 @@ const ${pascalCase}Epic: Epic<${pascalCase}Actions> = (action$: ActionsObservabl
 export default ${pascalCase}Epic;
     `;
 
-    const filePath = `./${path}/${name}.ts`;
+    const filePath = `${path}/${name}.ts`;
 
     // Check if the root file exists
-    const rootFilePath = `./${path}/index.ts`;
+    const rootFilePath = `${path}/index.ts`;
     const project = new Project();
     const rootSourceFile = project.addSourceFileAtPathIfExists(rootFilePath);
 

@@ -74,10 +74,10 @@ const ${pascalCase}Reducer: Reducer<I${pascalCase}State, ${pascalCase}Actions> =
 export default ${pascalCase}Reducer;
     `;
 
-    const filePath = `./${path}/${name}.ts`;
+    const filePath = `${path}/${name}.ts`;
 
     // Check if the root file exists
-    const rootFilePath = `./${path}/index.ts`;
+    const rootFilePath = `${path}/index.ts`;
     const project = new Project();
     const rootSourceFile = project.addSourceFileAtPathIfExists(rootFilePath);
 

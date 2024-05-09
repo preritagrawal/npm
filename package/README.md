@@ -18,8 +18,9 @@ When installed globally, you can use the bin commands directly with specific arg
 Model
 To generate a model, use the following command:
 
-model 'jsonStringifiedObject' interfaceName
-Replace 'jsonStringifiedObject' with the jsonStringified object representing the model and interfaceName with the name of the interface.
+model 'jsonStringifiedObject' interfaceName path 
+Replace 'jsonStringifiedObject' with the jsonStringified object representing the model and interfaceName with the name of the interface 
+and path is where to want to generate that file 
 
 Action
 To generate an action, use the following command:
